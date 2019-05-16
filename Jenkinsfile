@@ -1,7 +1,8 @@
 pipeline {
     agent any
-    
-	stages {
+
+
+    stages {
         stage('SCM Checkout'){
           git 'https://github.com/prakashk0301/maven-project'
         }
@@ -24,8 +25,9 @@ pipeline {
                 }
             }
         }
-		
-		stage ('install Stage') {
+
+
+        stage ('install Stage') {
             steps {
                 withMaven(maven : 'LocalMaven') {
                     sh 'mvn install'
@@ -33,8 +35,11 @@ pipeline {
             }
         }
     post {
-        always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        failure {
+            mail to: 'prakashk0301@gmail.com', from: 'prakashk0301@gmail.com',
+                subject: "Example Build: ${env.JOB_NAME} - Failed", 
+                body: "Job Failed - \"${env.JOB_NAME}\" build: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
         }
     }
+         
 }
