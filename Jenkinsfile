@@ -4,9 +4,9 @@ pipeline {
 
     stages {
         stage('SCM Checkout'){
-          git 'https://github.com/prakashk0301/maven-project'
+          git 'https://github.com/prakashk0301/maven-project.git'
         }
-  }
+    }
     {
         stage ('Compile Stage') {
 
@@ -27,15 +27,22 @@ pipeline {
         }
 
 
-        stage ('build && SonarQube analysis') {
+        stage ('install Stage') {
             steps {
-		        withSonarQubeEnv('sonar') {
-                    withMaven(maven : 'Local_Maven') {
-                        sh 'mvn clean install sonar:sonar'
+                withMaven(maven : 'LocalMaven') {
+                    sh 'mvn install'
                 }
             }
         }
 
-         
+        stage ('build && SonarQube analysis') {
+            steps {
+		withSonarQubeEnv('sonar') {
+                    withMaven(maven : 'LocalMaven') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+		}	
+            }
+        }
 }
 }
