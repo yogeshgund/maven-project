@@ -1,8 +1,7 @@
 pipeline {
     agent any
-
-
-    stages {
+    
+	stages {
         stage('SCM Checkout'){
           git 'https://github.com/prakashk0301/maven-project'
         }
@@ -25,25 +24,17 @@ pipeline {
                 }
             }
         }
-
-
-        stage ('install Stage') {
+		
+		stage ('install Stage') {
             steps {
                 withMaven(maven : 'LocalMaven') {
                     sh 'mvn install'
                 }
             }
         }
-   
-        stage ('notification') { 
-            step {
-               post {
-                   always {
-                       emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+    post {
+        always {
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
-               }
     }
-        }
-         
-}
 }
