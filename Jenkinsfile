@@ -30,7 +30,7 @@ pipeline {
         stage ('install Stage') {
             steps {
                 withMaven(maven : 'LocalMaven') {
-                    sh 'mvn install'
+                    sh 'clean mvn install'
                 }
             }
         } {
