@@ -36,10 +36,12 @@ pipeline {
         }
    
         stage ('notification') { 
-             post {
-                 always {
-                     emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+            step {
+               post {
+                   always {
+                       emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
+               }
     }
         }
          
