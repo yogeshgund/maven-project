@@ -33,7 +33,7 @@ pipeline {
                     sh 'mvn install'
                 }
             }
-        }
+        } {
     post {
         failure {
             mail to: 'prakashk0301@gmail.com', from: 'prakashk0301@gmail.com',
