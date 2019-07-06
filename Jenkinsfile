@@ -7,17 +7,15 @@ pipeline {
          }  
     }
     {
-        stage ('Compile Stage') {
-            when {
-                branch 'when-condition-ci-cd'
-            } 
-            steps {
-                withMaven(maven : 'LocalMaven') 
-                {   
-                    sh 'mvn compile' 
-                } 
-              
-                  }
+        stage ('parallel execute test') {
+            parallel (
+                    "unit test" : {
+                        build("unit-test-job")
+                    },
+                    "component test" : {
+                        build("component-test-job")
+                    }
+                )
 
 
     }      
