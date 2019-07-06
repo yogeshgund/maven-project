@@ -9,7 +9,7 @@ pipeline {
     {
         stage ('Compile Stage') {
             when {
-                branch 'when-condition-ci-cd'
+                branch 'master'
             } 
             steps {
                 withMaven(maven : 'LocalMaven') 
