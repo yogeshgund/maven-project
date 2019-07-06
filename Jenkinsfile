@@ -12,7 +12,9 @@ pipeline {
     }
     {
         stage ('Compile Stage') {
-
+            when {
+                branch 'master'
+            }
             steps {
                 withMaven(maven : 'LocalMaven') 
                 {   
@@ -20,32 +22,19 @@ pipeline {
                 }
                 }
                   }
+        stage ('skip compiled stage')
+            when {
+                not {
+                    branch 'master'
+                }
+            }
+        {
+            echo "skipping job"
+        }
+            
                                 
             
-        
-        
-        stage ('Testing Stage') {
 
-
-            steps {
-                withMaven(maven : 'LocalMaven')
-                {
-                    sh 'mvn test'
-                }
-                  }
-                                 
-        }
-
-        
-        stage ('install Stage') {
-            steps {
-                withMaven(maven : 'LocalMaven')
-                {
-                    sh 'mvn install'
-                }
-                                  
-                   }
-        }
 
     }      
 }
