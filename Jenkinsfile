@@ -8,17 +8,16 @@ pipeline {
     }
     stage ("parallel tests") {
             steps {
-                parallel ( 
-                    withMaven(maven : 'LocalMaven') {
+                withMaven(maven : 'LocalMaven') {
                     sh 'mvn clean compile'
+                    sh 'mvn test'
                     } 
                      
-                    withMaven(maven : 'LocalMaven') {
-                    sh 'mvn test'
+             
                     
                 }
                    
-                )
+
             }
         }
 }
