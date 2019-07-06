@@ -8,9 +8,9 @@ pipeline {
     }
     {
         stage ('Compile Stage') {
-            if {
+            if (
                 branch 'when-condition-ci-cd'
-            }
+            )
             steps {
                 withMaven(maven : 'LocalMaven') 
                 {   
