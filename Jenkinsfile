@@ -31,6 +31,7 @@ pipeline {
                 not {
                     branch 'ci-cd-pipeline'
                 }
+            }
 
             steps {
                 withMaven(maven : 'LocalMaven')
