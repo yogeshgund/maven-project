@@ -6,9 +6,9 @@ pipeline {
           git 'https://github.com/prakashk0301/maven-project'
          }  
     }
-    {
-        stage ('parallel execute test') {
-            parallel (
+    stage("parallel tests") {
+            steps {
+                parallel (
                     "unit test" : {
                         build("unit-test-job")
                     },
@@ -16,8 +16,7 @@ pipeline {
                         build("component-test-job")
                     }
                 )
-
-
-    }      
-  }
+            }
+        }
+    }
 }
