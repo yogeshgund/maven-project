@@ -15,6 +15,7 @@ pipeline {
                     "component test" : {
                         build("component-test-job")
                     }
+                    }
                 )
             }
         }
