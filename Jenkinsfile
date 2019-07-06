@@ -8,17 +8,15 @@ pipeline {
     }
     {
         stage ('Compile Stage') {
-            if (
+            when {
                 branch 'when-condition-ci-cd'
-            ) {
+            } 
             steps {
                 withMaven(maven : 'LocalMaven') 
                 {   
                     sh 'mvn compile' 
-                } }
-                else {
-                    echo 'skip'
-                }
+                } 
+              
                   }
 
             }
