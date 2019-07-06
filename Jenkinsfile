@@ -6,7 +6,7 @@ pipeline {
           git 'https://github.com/prakashk0301/maven-project'
          }  
     }
-    stage("parallel tests") {
+    stage ("parallel tests") {
             steps {
                 parallel ( {
                     withMaven(maven : 'LocalMaven') {
