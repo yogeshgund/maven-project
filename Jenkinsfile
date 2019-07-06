@@ -22,7 +22,7 @@ pipeline {
                 }
                 }
                   }
-        stage ('skip compiled stage')
+        stage ('skip compiled stage') {
             when {
                 not {
                     branch 'master'
