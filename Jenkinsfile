@@ -8,6 +8,7 @@ pipeline {
           git 'https://github.com/prakashk0301/maven-project'
         
         }
+    }
         
         stage ('Compile Stage') {
 
