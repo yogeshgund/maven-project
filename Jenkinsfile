@@ -27,11 +27,5 @@ pipeline {
         
             echo "skipping job"
          }
-            
-                                
-            
-
-
     }      
-}
-}
+  }
