@@ -21,7 +21,7 @@ pipeline {
         stage ('skip compiled stage') {
             when {
                 not {
-                    branch 'master'
+                    branch 'when-condition-ci-cd'
                 }
             }
             steps {
