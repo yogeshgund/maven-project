@@ -8,7 +8,7 @@ pipeline {
     }
     {
         stage ('Compile Stage') {
-            when {
+            if {
                 branch 'when-condition-ci-cd'
             }
             steps {
@@ -16,14 +16,11 @@ pipeline {
                 {   
                     sh 'mvn compile' 
                 }
+                else {
+                    echo 'skip'
                 }
                   }
-        stage ('test when branch is master') {
-            steps {
-                withMaven(maven : 'LocalMaven')  
-                {   
-                      sh 'mvn test' 
-                }
+
             }
          }
     }      
