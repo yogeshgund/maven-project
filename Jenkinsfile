@@ -5,8 +5,11 @@ pipeline {
     stages {
         
         stage ('SCM Checkout') {
+            steps {
           git 'https://github.com/prakashk0301/maven-project'
          }
+        }
+    }
         
         stage ('Compile Stage') {
             steps {
