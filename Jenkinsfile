@@ -18,10 +18,10 @@ pipeline {
                 }
                 }
                   }
-        stage ('test stage when branch is pipeline-demo2') {
+        stage ('test stage when branch is not when-condition-ci-c2') {
             when {
                 not {
-                    branch 'pipeline-demo2'
+                    branch 'when-condition-ci-cd'
                 }
             }
             steps {
