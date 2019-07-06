@@ -18,14 +18,16 @@ pipeline {
                 }
                 }
                   }
-        stage ('skip compiled stage') {
+        stage ('test stage when branch is pipeline-demo2') {
             when {
                 not {
-                    branch 'when-condition-ci-cd'
+                    branch 'pipeline-demo2'
                 }
             }
             steps {
-            echo "skipping job"
+                withMaven(maven : 'LocalMaven')  
+                {   
+                      sh 'mvn test' 
             }
          }
     }      
