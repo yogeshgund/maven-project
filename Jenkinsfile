@@ -12,9 +12,7 @@ pipeline {
     }
     {
         stage ('Compile Stage') {
-            when {
-                branch 'ci-cd-pipeline'
-            }
+
             steps {
                 withMaven(maven : 'LocalMaven') 
                 {   
@@ -27,11 +25,7 @@ pipeline {
         
         
         stage ('Testing Stage') {
-            when {
-                not {
-                    branch 'ci-cd-pipeline'
-                }
-            }
+
 
             steps {
                 withMaven(maven : 'LocalMaven')
