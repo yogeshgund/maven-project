@@ -9,12 +9,12 @@ pipeline {
     stage("parallel tests") {
             steps {
                 parallel (
-                    "unit test" : {
-                        build("unit-test-job")
-                    },
-                    "component test" : {
-                        build("component-test-job")
-                    }
+                    withMaven(maven : 'LocalMaven') {
+                    sh 'mvn clean compile'
+                }
+                    withMaven(maven : 'LocalMaven') {
+                    sh 'mvn test'
+                }
                    
                 )
             }
