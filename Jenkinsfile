@@ -24,8 +24,9 @@ pipeline {
                     branch 'master'
                 }
             }
-        
+            steps {
             echo "skipping job"
+            }
          }
     }      
   }
