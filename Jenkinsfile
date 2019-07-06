@@ -9,7 +9,7 @@ pipeline {
     {
         stage ('Compile Stage') {
             when {
-                branch 'when-condition-ci-cd'
+                branch 'master'
             }
             steps {
                 withMaven(maven : 'LocalMaven') 
@@ -18,12 +18,7 @@ pipeline {
                 }
                 }
                   }
-        stage ('test stage when branch is not when-condition-ci-c2') {
-            when {
-                not {
-                    branch 'when-condition-ci-cd'
-                }
-            }
+        stage ('test when branch is master') {
             steps {
                 withMaven(maven : 'LocalMaven')  
                 {   
