@@ -28,6 +28,7 @@ pipeline {
                 withMaven(maven : 'LocalMaven')  
                 {   
                       sh 'mvn test' 
+                }
             }
          }
     }      
