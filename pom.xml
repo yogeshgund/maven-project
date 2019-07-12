@@ -137,6 +137,11 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>3.0</version>
         </plugin>
+               
+        <plugin>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.7.2.201409121644</version>
+        </plugin>
 
         <plugin>
           <artifactId>maven-surefire-report-plugin</artifactId>
