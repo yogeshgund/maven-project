@@ -25,7 +25,6 @@
     <module>webapp</module>
   </modules>
 
-  <name>Maven Project</name>
   <description>Trigger SonarQube analysis on Maven projects</description>
   <url>https://github.com/prakashk0301/maven-project/</url>
   <inceptionYear>2009</inceptionYear>
