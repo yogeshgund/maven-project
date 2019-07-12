@@ -26,9 +26,6 @@
   </modules>
 
 
-  <url>https://github.com/prakashk0301/maven-project/</url>
-  <inceptionYear>2009</inceptionYear>
-
   <licenses>
     <license>
       <name>GNU LGPL 3</name>
