@@ -74,6 +74,11 @@
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>findbugs-maven-plugin</artifactId>
             </plugin>
+                   
+             <plugin>
+              <artifactId>sonar-maven-plugin</artifactId>
+              <version>3.4.0.905</version>
+            </plugin>
 
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
