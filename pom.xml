@@ -82,15 +82,16 @@
       <id>github</id>
       <name>GitHub</name>
       <url>scm:git:git@github.com:SonarSource/sonar-scanner-maven.git</url>
-    </site>
+      <mojo.java.target>1.7</mojo.java.target>
+      <mavenVersion>3.5.2</mavenVersion>
+      <sonar.exclusions>src/main/java/org/apache/maven/shared/dependency/tree/DependencyTreeResolutionListener.java,target/generated-sources/**/*</sonar.exclusions>
+      <gitRepositoryName>sonar-scanner-maven</gitRepositoryName>
+      </site>
   </distributionManagement>
 
 
-    <mojo.java.target>1.7</mojo.java.target>
-    <mavenVersion>3.5.2</mavenVersion>
-    <sonar.exclusions>src/main/java/org/apache/maven/shared/dependency/tree/DependencyTreeResolutionListener.java,target/generated-sources/**/*</sonar.exclusions>
-    <gitRepositoryName>sonar-scanner-maven</gitRepositoryName>
-  </properties>
+
+
 
   <dependencies>
     <dependency>
