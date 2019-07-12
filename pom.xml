@@ -25,9 +25,9 @@
     <module>webapp</module>
   </modules>
 
-  <name>SonarQube Scanner for Maven</name>
+  <name>Maven Project</name>
   <description>Trigger SonarQube analysis on Maven projects</description>
-  <url>http://sonarsource.github.io/sonar-scanner-maven/</url>
+  <url>https://github.com/prakashk0301/maven-project/</url>
   <inceptionYear>2009</inceptionYear>
 
   <licenses>
