@@ -12,8 +12,11 @@ node {
   }
   
   stage('MVN Package'){
-    def mvnHome = tool name: 'maven', type: 'maven'
-    sh "${mvnHome}/bin/mvn clean package"
+    steps {
+                withMaven(maven : 'LocalMaven') {
+                    sh 'mvn clean package'
+                }
+            }
    }
   stage('Build Docker Image'){
     sh 'docker build /var/lib/jenkins/workspace/pipeline_docker_tomcat/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
