@@ -13,7 +13,7 @@ node {
   
   stage('Maven Package') {
       def mavenHome  = tool 'LocalMaven'
-      env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+      sh "${mvnHome}/bin/mvn clean package"
    }
 	
   stage('Build Docker Image'){
