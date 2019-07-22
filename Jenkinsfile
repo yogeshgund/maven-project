@@ -12,12 +12,10 @@ node {
   }
   
   stage('Maven Package') {
-      steps {
-          withMaven(maven : 'LocalMaven') {
-              sh 'mvn package'
-             }
-        }
+      def mavenHome  = tool 'LocalMaven'
+      env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
    }
+	
   stage('Build Docker Image'){
     sh 'docker build /var/lib/jenkins/workspace/pipeline_docker_tomcat/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
    }
