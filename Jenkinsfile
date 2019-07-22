@@ -2,6 +2,7 @@ def DOCKER_HUB_USER="pkw0301"
 def DOCKER_IMAGE_NAME="my-tomcat-app"
 def DOCKER_IMAGE_TAG="1.0.0"
 def DOCKER_CONTAINER_NAME="my-app"
+def JOB_NAME="docker-deploy"
 
 
 
@@ -17,7 +18,7 @@ node {
    }
 	
   stage('Build Docker Image'){
-    sh 'docker build /var/lib/jenkins/workspace/pipeline_docker_tomcat/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
+	  sh 'docker build /var/lib/jenkins/workspace/${JOB_NAME}/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
    }
 
   stage('Upload Image to DockerHub'){
