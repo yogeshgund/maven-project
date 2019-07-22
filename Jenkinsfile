@@ -6,17 +6,17 @@ def DOCKER_CONTAINER_NAME="my-app"
 
 
 node {
-  stage('Git Checkout'){
+  stage('Git Checkout') {
         git url: 'https://github.com/prakashk0301/maven-project.git',
           branch:'ci-cd-with-docker'
   }
   
-  stage('MVN Package'){
-    steps {
-                withMaven(maven : 'LocalMaven') {
-                    sh 'mvn clean package'
-                }
-            }
+  stage('Maven Package') {
+      steps {
+          withMaven(maven : 'LocalMaven') {
+              sh 'mvn package'
+             }
+        }
    }
   stage('Build Docker Image'){
     sh 'docker build /var/lib/jenkins/workspace/pipeline_docker_tomcat/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
