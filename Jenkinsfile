@@ -18,7 +18,8 @@ node {
    }
 	
   stage('Build Docker Image'){
-	  sh 'docker build /var/lib/jenkins/workspace/docker-deploy/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
+//	  sh 'docker build /var/lib/jenkins/workspace/docker-deploy/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
+	  sh 'cd /var/lib/jenkins/workspace/${JOB_NAME}'
 	  docker.build(DOCKER_HUB_USER, DOCKER_IMAGE_NAME, DOCKER_IMAGE_TAG)
    }
 
