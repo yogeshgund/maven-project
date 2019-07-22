@@ -12,8 +12,8 @@ node {
   }
   
   stage('Maven Package') {
-      def mavenHome  = tool 'LocalMaven'
-      sh "${mvnHome}/bin/mvn clean package"
+      def MAVEN_HOME  = tool 'LocalMaven'
+      sh "${MAVEN_HOME}/bin/mvn clean package"
    }
 	
   stage('Build Docker Image'){
