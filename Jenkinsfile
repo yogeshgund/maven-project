@@ -18,7 +18,7 @@ node {
    }
 	
   stage('Build Docker Image'){
-	  sh 'docker build /var/lib/jenkins/workspace/${JOB_NAME}/ -t ${DOCKER_HUB_USER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
+	  imageBuild(DOCKER_IMAGE_NAME, DOCKER_IMAGE_TAG)
    }
 
   stage('Upload Image to DockerHub'){
