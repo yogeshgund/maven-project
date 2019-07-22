@@ -18,7 +18,7 @@ node {
    }
 	
   stage('Build Docker Image'){
-	  imageBuild(DOCKER_IMAGE_NAME, DOCKER_IMAGE_TAG)
+      imageBuild(DOCKER_IMAGE_NAME, DOCKER_IMAGE_TAG)
    }
 
   stage('Upload Image to DockerHub'){
