@@ -22,12 +22,27 @@ node{
 	     }
 	   sh 'docker push pkw0301/my-app:1.0.0'
 	
-    }
+        }
+	
+       stage('Remove Old Containers'){
+           sshagent(['deploy-to-dev-docker']) {
+             try{
+               def sshCmd = 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.46.1'
+               def dockerRM = 'docker rm -f my-tomcat-app'
+                 sh "${sshCmd} ${dockerRM}"
+                 }catch(error){
 
-    stage ('Deploy to Dev') {
-	   def dockerRun = 'docker run -d -p 9001:8080 --name my-tomcat-app1 pkw0301/my-app:1.0.0'
+      }
+    }
+  }
+	
+	
+	
+
+       stage ('Deploy to Dev') {
+	   def dockerRun = 'docker run -d -p 9001:8080 --name my-tomcat-app pkw0301/my-app:1.0.0'
 	   sshagent(['deploy-to-dev-docker']) {
-       sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.46.1 ${dockerRun}"
+             sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.46.1 ${dockerRun}"
    }
   }	
 }
