@@ -40,7 +40,7 @@ node{
 	
 
        stage ('Deploy to Dev') {
-	   def dockerRun = 'docker run -d -p 9001:8080 --name my-tomcat-app pkw0301/my-app:1.0.0'
+	   def dockerRun = 'docker run -d -p 9000:8080 --name my-tomcat-app pkw0301/my-app:1.0.0'
 	   sshagent(['deploy-to-dev-docker']) {
              sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.46.1 ${dockerRun}"
    }
