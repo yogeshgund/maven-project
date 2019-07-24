@@ -5,7 +5,7 @@ node{
 	}
 	
 	stage('Checkout to different branch') {
-           sh "git branch -r"
+           sh "git branch -a"
            sh "git checkout try-docker"
 	   sh 'pwd'
 	   sh 'ls -a'
