@@ -13,6 +13,8 @@ node{
         }
 	
 	stage ('docker image build') {
+	   sh 'pwd'
+	   sh 'ls -a'
            sh 'docker build -t pkw0301/prakash-app:1.0.0 .'
 	}
 
