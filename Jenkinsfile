@@ -10,8 +10,11 @@ pipeline {
     {
         stage ('Compile Stage') {
 
-          def mvnHome = tool name: 'LocalMaven', type: 'maven'
-          sh "${mvnHome}/bin/mvn clean package"
+            steps {
+                withMaven(maven : 'LocalMaven') {
+                    sh 'mvn clean compile'
+                }
+            }
         }
 
         stage ('Testing Stage') {
