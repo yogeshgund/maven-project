@@ -4,4 +4,4 @@ Pipeline {
     stage ('SCM Checkout') {
        git 'try-docker', url: 'https://github.com/prakashk0301/maven-project'
     }
- 
+ }
