@@ -1,13 +1,13 @@
     
 node{
     stage ('scm checkout') {
-       git 'url: 'https://github.com/prakashk0301/maven-project'
-    }
-    
-    	stage('Checkout to different branch') {
+	git ('https://github.com/prakashk0301/maven-project')
+	}
+	
+	stage('Checkout to different branch') {
+        sh "git branch -r"
         sh "git checkout try-docker"
     }
-    
     
  }
  
