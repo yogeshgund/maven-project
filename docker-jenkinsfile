@@ -2,6 +2,6 @@ Pipeline {
     agent any 
   
     stage ('SCM Checkout') {
-       git 'https://github.com/prakashk0301/maven-project'
+       git 'try-docker', url: 'https://github.com/prakashk0301/maven-project'
     }
  
