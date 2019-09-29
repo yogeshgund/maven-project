@@ -29,6 +29,6 @@ steps{
     sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.35.118:/var/lib/tomcat/webapps'
   }
 }
-
+	}
 }
 }
