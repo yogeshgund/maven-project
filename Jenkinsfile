@@ -9,9 +9,7 @@ pipeline {
 	git 'https://github.com/yogeshgund/maven-project.git'
 	}
 	}
-	{
-		
-	
+	{	
 	stage ('testing stage') {
 		
 	steps {
@@ -19,7 +17,7 @@ pipeline {
 		 {
 	      sh 'mvn install'
          }
-    }
+	}
     }
 }
 	stage ('deploy to tomcat') {
