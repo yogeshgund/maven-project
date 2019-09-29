@@ -1,6 +1,6 @@
 pipeline {
     agent any
-	
+	{	
 	
 	stages
 	{
@@ -17,7 +17,7 @@ pipeline {
 	steps {
 	     withMaven(maven: 'localmaven') 
 		 {
-	      sh 'mvn test'
+	      sh 'mvn install'
          }
     }
     }
