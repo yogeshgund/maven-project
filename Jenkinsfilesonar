@@ -15,11 +15,11 @@ pipeline {
                                        }
                  stage ('sonar and install') {
 											steps {
-											       withSonarQubeEnv('sonar') 
+											       withSonarQubeEnv('sonar') {
 												   withMaven(maven: 'localmaven') {
 																					sh 'clean install sonar:sonar'
 																			      }
 												  }
-               }
+               }}
 		}
 }
