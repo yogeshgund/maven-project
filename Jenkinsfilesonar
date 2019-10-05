@@ -6,10 +6,10 @@ pipeline {
                                               git "https://github.com/yogeshgund/maven-project.git"
                                               }
                                      }
-                 stage ('build') {
+                 stage ('install') {
                                   steps {
                                          withMaven(maven: 'localmaven') {
-                                                                         sh 'mvn build'
+                                                                         sh 'mvn clean install'
                                                                         }
                                          }
                 }
