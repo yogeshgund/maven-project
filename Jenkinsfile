@@ -43,7 +43,7 @@ stage ('deploy my code')
 steps
 {
   sshagent (credentials: ['deploy-dev']) {
-    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@http://172.31.39.233:/var/lib/tomcat/webapps'
+    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@http://54.90.188.161:/var/lib/tomcat/webapps'
   }}}
 }
 }
