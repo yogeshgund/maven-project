@@ -16,3 +16,4 @@ steps
 withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
     sh'mvn compile' }}}
 }
+}
