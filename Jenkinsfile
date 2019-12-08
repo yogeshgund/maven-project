@@ -20,6 +20,12 @@ steps
 {
 withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
     sh'mvn test' }}}
+stage ('package my code')
+{
+steps
+{
+withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
+    sh'mvn package' }}}
 
 }
 }
