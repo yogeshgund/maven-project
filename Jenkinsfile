@@ -2,11 +2,16 @@ pipeline {
 agent any
 stages
 {
-stage ('cloning code')
+steps
+{git 'https://github.com/yogeshgund/maven-project.git'
+}
+}
+stage ('compile my project')
 {
 steps
-{git 'https://github.com/prakashk0301/maven-project.git'
+{
+withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
+    sh'mvn compile'
 }
 }
 }
-}  
