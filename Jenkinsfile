@@ -32,5 +32,11 @@ steps
 {
 withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
     sh'mvn install' }}}
+stage ('verify my code')
+{
+steps
+{
+withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
+    sh'mvn verify' }}}
 }
 }
