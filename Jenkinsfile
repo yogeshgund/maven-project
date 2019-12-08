@@ -38,11 +38,11 @@ steps
 {
 withMaven(jdk: 'LocalJDK', maven: 'LocalMaven') {
     sh'mvn verify' }}}
-stage ('deploy my code')
+stage ('deploy to tomcat')
 {
 steps
 {
-  sshagent (credentials: ['deploy-dev']) {
+  sshagent(['tomcat2']) {
     sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@54.90.188.161:/var/lib/tomcat/webapps'
   }}}
 }
