@@ -2,13 +2,13 @@ pipeline {
 agent any
 stages
 {
-stage ('scm checkout')
+stage ('cloning code')
 {
 steps
 {git 'https://github.com/yogeshgund/maven-project.git'
 }
 }
-}
+
 stage ('compile my project')
 {
 steps
