@@ -1,4 +1,3 @@
-pipeline {
 node {
 
 stage ('scm checkout') {
@@ -18,5 +17,4 @@ sh 'mvn package'
   },
   failFast: true
 }
-}
-}
+
