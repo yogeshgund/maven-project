@@ -1,3 +1,4 @@
+pipeline {
 node {
 
 stage ('scm checkout') {
