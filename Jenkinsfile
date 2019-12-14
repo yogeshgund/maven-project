@@ -4,7 +4,7 @@ stage ('scm checkout') {
 git url: 'https://github.com/yogeshgund/maven-project.git', branch: 'master'
 }
 
-	parallel creatapackage: {
+	parallel createpackage: {
 	stage('maven package goal') {
 sh 'mvn package'
 }
